@@ -22,17 +22,16 @@ import org.hibernate.cfg.Configuration;
 
 public class studentDao {
 
-	Configuration con;SessionFactory  sf;
+	Configuration con;
+	SessionFactory  sf;
 	Session ses;
 	Transaction tran ;
 	
-	// METHOD 1
-	// CONNECT METHOD TO BEGIN SESSION AND CONNECT WITH DATABASE
-	public void connect() {
-		con = new Configuration().configure().addAnnotatedClass(student.class).addAnnotatedClass(laptop.class);
-		sf = con.buildSessionFactory();
-		ses = sf.openSession();
-		tran = ses.beginTransaction();
+	public void connect() {												// METHOD 1
+	con = new Configuration().configure().addAnnotatedClass(student.class).addAnnotatedClass(laptop.class);		// CONNECT METHOD TO BEGIN SESSION AND CONNECT WITH DATABASE
+	sf = con.buildSessionFactory();
+	ses = sf.openSession();										
+	tran = ses.beginTransaction();
 	}
 	
 	// METHOD 2
